@@ -1,0 +1,13 @@
+services:
+  jobmanager:
+    volumes:
+      - flink-checkpoint-data:/opt/flink/checkpoints
+      - ./flink-connectors/flink-sql-connector-kafka-3.4.0-1.20.jar:/opt/flink/lib/flink-sql-connector-kafka-3.4.0-1.20.jar:ro
+
+  taskmanager:
+    volumes:
+      - flink-checkpoint-data:/opt/flink/checkpoints
+      - ./flink-connectors/flink-sql-connector-kafka-3.4.0-1.20.jar:/opt/flink/lib/flink-sql-connector-kafka-3.4.0-1.20.jar:ro
+
+volumes:
+  flink-checkpoint-data:
